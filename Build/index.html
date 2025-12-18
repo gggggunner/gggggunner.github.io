@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Gunner Speros" />
+    <meta name="generator" content="Ignite v0.6.0" />
+    <title>Home – Gunner Speros</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/css/ignite-core.min.css" rel="stylesheet" />
+    <link href="https://www.gunnersperos.com/" rel="canonical" />
+    <script>(function() {
+    function getThemePreference() {
+        return localStorage.getItem('custom-theme') || 'auto';
+    }
+
+    function applyTheme(themeID) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const lightThemeID = document.documentElement.getAttribute('data-light-theme') || 'light';
+        const darkThemeID = document.documentElement.getAttribute('data-dark-theme') || 'dark';
+        const actualThemeID = themeID === 'auto' ? (prefersDark ? darkThemeID : lightThemeID) : themeID;
+
+        document.documentElement.setAttribute('data-bs-theme', actualThemeID);
+        document.documentElement.setAttribute('data-theme-state', themeID);
+    }
+
+    function applySyntaxTheme() {
+        const syntaxTheme = getComputedStyle(document.documentElement)
+            .getPropertyValue('--syntax-highlight-theme').trim().replace(/"/g, '');
+
+        if (!syntaxTheme) return;
+
+        document.querySelectorAll('link[data-highlight-theme]').forEach(link => {
+            link.setAttribute('disabled', 'disabled');
+        });
+
+        const themeLink = document.querySelector(`link[data-highlight-theme="${syntaxTheme}"]`);
+        if (themeLink) {
+            themeLink.removeAttribute('disabled');
+        }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const currentTheme = getThemePreference();
+        if (currentTheme === 'auto') {
+            applyTheme('auto');
+            applySyntaxTheme();
+        }
+    });
+
+    const savedTheme = getThemePreference();
+    applyTheme(savedTheme);
+    applySyntaxTheme();
+})();
+</script>
+    <meta property="og:site_name" content="Gunner Speros" />
+    <meta property="og:title" content="Home" />
+    <meta name="twitter:title" content="Home" />
+    <meta property="og:url" content="https://www.gunnersperos.com/" />
+    <meta name="twitter:domain" content="gunnersperos.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:dnt" content="on" />
+  </head>
+  <body class="container">
+    <div class="ig-main-content">
+      <header>
+        <nav class="fixed-top navbar navbar-expand-md" style="background-color: rgb(0 0 0 / 100%)" data-bs-theme="dark">
+          <div class="container flex-wrap flex-lg-nowrap">
+            <div class="me-2 me-md-auto">
+              <a href="/" class="d-inline-flex align-items-center navbar-brand">Gunner Speros | iOS Developer</a>
+            </div>
+            <button type="button" class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+              <ul class="navbar-nav mb-2 mb-md-0 col justify-content-end">
+                <li class="nav-item"><a href="/home" class="nav-link text-nowrap">Home</a></li>
+                <li class="nav-item"><a href="/iOS" class="nav-link text-nowrap">iOS</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="row justify-content-center row-cols-1 row-cols-md-2" style="margin-bottom: 64px; padding-top: 64px">
+        <div class="col-md-24 align-self-center g-3">
+          <img src="/images/me/suit-square.jpeg" alt="picture of Gunner Speros" class="img-fluid" style="border-radius: 3px" />
+        </div>
+        <div class="col align-self-center g-3">
+          <div class="row justify-content-center row-cols-1 row-cols-md-1">
+            <div class="col-md-48 align-self-center g-3">
+              <h1 class="text-center" style="font-weight: 300">Gunner Speros</h1>
+            </div>
+            <div class="col align-self-center g-3">
+              <h3 class="text-center" style="font-weight: 200">I am an application developer with a focus on the Swift language. I am passionate about the future of iOS and visionOS development.</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="text-start m-0" style="font-weight: 300">iOS Apps</h2>
+      <div class="row justify-content-center row-cols-1 row-cols-md-3" style="margin-bottom: 64px">
+        <div class="col align-self-center g-3">
+          <div class="row justify-content-center row-cols-1 row-cols-md-1" style="margin-left: 20px; margin-right: 20px">
+            <div class="col-md-48 align-self-center g-3">
+              <img src="/images/iOS%20Apps/screenshots/mch%20screen.png" alt="screenshot of My Cooking Helper App" class="img-fluid" style="box-shadow: rgb(0 0 0 / 33%) 0px 0px 3px " />
+            </div>
+            <div class="col align-self-center g-3">
+              <div class="vstack">
+                <p class="mb-0 align-self-start" style="font-weight: 400">My Cooking Helper</p>
+                <p class="mb-0 align-self-start" style="font-weight: 200; padding-bottom: 20px">Keeps track of your recipes and shopping list. Uses Apple Intelligence to suggest new recipes.</p>
+                <p class="mb-0 align-self-start" style="font-weight: 400">Key Technologies used:</p>
+                <p class="mb-0 align-self-start" style="font-weight: 200">• Foundation Models</p>
+                <p class="mb-0 align-self-start" style="font-weight: 200">• SwiftData</p>
+                <p class="mb-0 align-self-start" style="font-weight: 200">• Liquid Glass</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col align-self-center g-3">
+          <div class="row justify-content-center row-cols-1 row-cols-md-1" style="margin-left: 20px; margin-right: 20px">
+            <div class="col-md-48 align-self-center g-3">
+              <img src="/images/iOS%20Apps/screenshots/travel%20tracker%20screen.png" alt="screenshot of Travel Tracker App" class="img-fluid" style="box-shadow: rgb(0 0 0 / 33%) 0px 0px 3px " />
+            </div>
+            <div class="col align-self-center g-3">
+              <div class="vstack">
+                <p class="mb-0 align-self-start" style="font-weight: 400">Travel Tracker</p>
+                <p class="mb-0 align-self-start" style="font-weight: 200; padding-bottom: 20px">Maps out places you've traveled. Add photos and notes about each location.</p>
+                <p class="mb-0 align-self-start" style="font-weight: 400">Key Technologies used:</p>
+                <p class="mb-0 align-self-start" style="font-weight: 200">• MapKit</p>
+                <p class="mb-0 align-self-start" style="font-weight: 200">• PhotosPicker</p>
+                <p class="mb-0 align-self-start" style="font-weight: 200">• Liquid Glass</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col align-self-center g-3">
+          <div class="row justify-content-center row-cols-1 row-cols-md-1" style="margin-left: 20px; margin-right: 20px">
+            <div class="col-md-48 align-self-center g-3">
+              <img src="/images/iOS%20Apps/screenshots/movie%20list%20screen.png" alt="screenshot of My Movie List App" class="img-fluid" style="box-shadow: rgb(0 0 0 / 33%) 0px 0px 3px " />
+            </div>
+            <div class="col align-self-center g-3">
+              <div class="vstack">
+                <p class="mb-0 align-self-start" style="font-weight: 400">My Movie List</p>
+                <p class="mb-0 align-self-start" style="font-weight: 200; padding-bottom: 20px">Save the movies you have seen and still need to watch. Search for movies using the IMDb database.</p>
+                <p class="mb-0 align-self-start" style="font-weight: 400">Key Technologies used:</p>
+                <p class="mb-0 align-self-start" style="font-weight: 200">• async/await</p>
+                <p class="mb-0 align-self-start" style="font-weight: 200">• SwiftData</p>
+                <p class="mb-0 align-self-start" style="font-weight: 200">• Liquid Glass</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="text-center mt-5">Created in Swift with <a href="https://github.com/twostraws/Ignite">Ignite</a></p>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/ignite-core.js"></script>
+  </body>
+</html>

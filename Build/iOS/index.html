@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Gunner Speros" />
+    <meta name="generator" content="Ignite v0.6.0" />
+    <title>iOS – Gunner Speros</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/css/ignite-core.min.css" rel="stylesheet" />
+    <link href="https://www.gunnersperos.com/iOS" rel="canonical" />
+    <script>(function() {
+    function getThemePreference() {
+        return localStorage.getItem('custom-theme') || 'auto';
+    }
+
+    function applyTheme(themeID) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const lightThemeID = document.documentElement.getAttribute('data-light-theme') || 'light';
+        const darkThemeID = document.documentElement.getAttribute('data-dark-theme') || 'dark';
+        const actualThemeID = themeID === 'auto' ? (prefersDark ? darkThemeID : lightThemeID) : themeID;
+
+        document.documentElement.setAttribute('data-bs-theme', actualThemeID);
+        document.documentElement.setAttribute('data-theme-state', themeID);
+    }
+
+    function applySyntaxTheme() {
+        const syntaxTheme = getComputedStyle(document.documentElement)
+            .getPropertyValue('--syntax-highlight-theme').trim().replace(/"/g, '');
+
+        if (!syntaxTheme) return;
+
+        document.querySelectorAll('link[data-highlight-theme]').forEach(link => {
+            link.setAttribute('disabled', 'disabled');
+        });
+
+        const themeLink = document.querySelector(`link[data-highlight-theme="${syntaxTheme}"]`);
+        if (themeLink) {
+            themeLink.removeAttribute('disabled');
+        }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const currentTheme = getThemePreference();
+        if (currentTheme === 'auto') {
+            applyTheme('auto');
+            applySyntaxTheme();
+        }
+    });
+
+    const savedTheme = getThemePreference();
+    applyTheme(savedTheme);
+    applySyntaxTheme();
+})();
+</script>
+    <meta property="og:site_name" content="Gunner Speros" />
+    <meta property="og:title" content="iOS" />
+    <meta name="twitter:title" content="iOS" />
+    <meta property="og:url" content="https://www.gunnersperos.com/iOS" />
+    <meta name="twitter:domain" content="gunnersperos.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:dnt" content="on" />
+  </head>
+  <body class="container">
+    <div class="ig-main-content">
+      <div style="padding-bottom: 64px">
+        <header>
+          <nav class="fixed-top navbar navbar-expand-md" style="background-color: rgb(0 0 0 / 100%)" data-bs-theme="dark">
+            <div class="container flex-wrap flex-lg-nowrap">
+              <div class="me-2 me-md-auto">
+                <a href="/" class="d-inline-flex align-items-center navbar-brand">Gunner Speros | iOS Developer</a>
+              </div>
+              <button type="button" class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+              <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="navbar-nav mb-2 mb-md-0 col justify-content-end">
+                  <li class="nav-item"><a href="/home" class="nav-link text-nowrap">Home</a></li>
+                  <li class="nav-item"><a href="/iOS" class="nav-link active text-nowrap" aria-current="page">iOS</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+      </div>
+      <h1 class="text-center" style="font-weight: 300">My iOS Apps</h1>
+      <div class="style-RKBqJ row justify-content-center row-cols-1 row-cols-md-2" style="padding: 20px">
+        <div class="col align-self-center g-3">
+          <div class="row justify-content-center row-cols-1 row-cols-md-1" style="margin: 20px">
+            <div class="col align-self-center g-3">
+              <h2 class="text-center">WorkoutList</h2>
+            </div>
+            <div class="col align-self-center g-3">
+              <p class="text-start">WorkoutList is an app where you can track workouts. It uses Liquid Glass to beautifully show your workouts and animate when expanding and collapsing. The exercise data is stored using SwiftData so you can quickly update your info and not worry about loading times.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col align-self-center g-3">
+          <div class="vstack">
+            <video controls class="mb-0 align-self-center" style="width: 100%">
+              <source src="/videos/testVideo.mov" type="video/quicktime" />Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="style-viuXX row justify-content-center row-cols-1 row-cols-md-2" style="padding: 20px">
+        <div class="col align-self-center g-3">
+          <div class="vstack">
+            <video controls class="mb-0 align-self-center" style="width: 100%">
+              <source src="/videos/testVideo.mov" type="video/quicktime" />Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <div class="col align-self-center g-3">
+          <div class="row justify-content-center row-cols-1 row-cols-md-1" style="margin: 20px">
+            <div class="col align-self-center g-3">
+              <h2 class="text-center">WorkoutList</h2>
+            </div>
+            <div class="col align-self-center g-3">
+              <p class="text-start">WorkoutList is an app where you can track workouts. It uses Liquid Glass to beautifully show your workouts and animate when expanding and collapsing. The exercise data is stored using SwiftData so you can quickly update your info and not worry about loading times.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center row-cols-1 row-cols-md-2" style="padding: 20px">
+        <div class="col align-self-center g-3">
+          <div class="vstack">
+            <video controls class="mb-0 align-self-center" style="width: 100%">
+              <source src="/videos/testVideo.mov" type="video/quicktime" />Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <div class="col align-self-center g-3">
+          <div class="row justify-content-center row-cols-1 row-cols-md-1" style="margin: 20px">
+            <div class="col align-self-center g-3">
+              <h2 class="text-center">WorkoutList</h2>
+            </div>
+            <div class="col align-self-center g-3">
+              <p class="text-start">WorkoutList is an app where you can track workouts. It uses Liquid Glass to beautifully show your workouts and animate when expanding and collapsing. The exercise data is stored using SwiftData so you can quickly update your info and not worry about loading times.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="text-center mt-5">Created in Swift with <a href="https://github.com/twostraws/Ignite">Ignite</a></p>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/ignite-core.js"></script>
+  </body>
+</html>
