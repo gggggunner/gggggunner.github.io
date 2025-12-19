@@ -22,15 +22,12 @@ public struct AppDetailsSection: HTML {
     }
     
     public var body: some HTML {
-        if textAlignedLeading {
-            textLeadingSection
-                .hidden(.responsive(true, small: true, medium: false, large: false, xLarge: false, xxLarge: false))
-            
-            textTrailingSection
-                .hidden(.responsive(false, small: false, medium: true, large: true, xLarge: true, xxLarge: true))
-        } else {
-            textTrailingSection
-        }
+        PageLayout(textAlignedLeading: textAlignedLeading, textLeadingSection: textLeadingSection, textTrailingSection: textTrailingSection)
+            .hidden(.responsive(true, small: true, medium: false, large: false, xLarge: false, xxLarge: false))
+        
+        // use for mobile
+        PageLayout(textAlignedLeading: false, textLeadingSection: textLeadingSection, textTrailingSection: textTrailingSection)
+            .hidden(.responsive(false, small: false, medium: true, large: true, xLarge: true, xxLarge: true))
     }
     
     private var appDetails: some HTML {
@@ -43,33 +40,59 @@ public struct AppDetailsSection: HTML {
                 .horizontalAlignment(.leading)
         }
         .columns(1)
-        .margin()
     }
     
-    private var video: some HTML {
-        VStack{
+    var textLeadingSection: some HTML {
+        Grid {
+            Grid {
+                Text(appName)
+                    .font(.title2)
+                    .horizontalAlignment(.center)
+                
+                Text(appDescription)
+                    .horizontalAlignment(.leading)
+            }
+            .columns(1)
+            
             Video(videoPath)
                 .style(.width, "100%")
-        }
-    }
-    
-    private var textLeadingSection: some HTML {
-        Grid {
-            appDetails
-            
-            video
+                .padding(.horizontal, 128)
         }
         .columns(2)
         .padding()
     }
     
-    private var textTrailingSection: some HTML {
+    var textTrailingSection: some HTML {
         Grid {
-            video
+            Video(videoPath)
+                .style(.width, "100%")
+                .padding(.horizontal, 96)
             
             appDetails
         }
         .columns(2)
         .padding()
+    }
+    
+    /// Had to use this to get the layout to behave differently on mobile properly
+    /// Used to place video above text on each section in mobile by always passing textAlignedLeading = false when mobile
+    private struct PageLayout: HTML {
+        let textAlignedLeading: Bool
+        let textLeadingSection: any HTML
+        let textTrailingSection: any HTML
+        
+        public init(textAlignedLeading: Bool, textLeadingSection: any HTML, textTrailingSection: any HTML) {
+            self.textAlignedLeading = textAlignedLeading
+            self.textLeadingSection = textLeadingSection
+            self.textTrailingSection = textTrailingSection
+        }
+        
+        var body: some HTML {
+            if textAlignedLeading {
+                textLeadingSection
+            } else {
+                textTrailingSection
+            }
+        }
     }
 }

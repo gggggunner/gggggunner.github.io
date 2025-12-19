@@ -26,7 +26,5 @@ public struct MyFooter: HTML {
         }
         .horizontalAlignment(.center)
         .margin(.top, .xLarge)
-        
-        
     }
 }
